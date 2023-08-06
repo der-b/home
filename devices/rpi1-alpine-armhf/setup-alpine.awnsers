@@ -1,0 +1,54 @@
+# Example answer file for setup-alpine script
+# If you don't want to use a certain option, then comment it out
+
+# Use US layout with US variant
+KEYMAPOPTS="us us"
+
+# Set hostname
+HOSTNAMEOPTS=sensor-sniffer.lan
+
+# Set device manager to mdev
+DEVDOPTS=mdev
+
+# Contents of /etc/network/interfaces
+INTERFACESOPTS="auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+    hostname sensor-sniffer.lan
+"
+
+# Set timezone to UTC
+#TIMEZONEOPTS="UTC"
+TIMEZONEOPTS="Europe/Berlin"
+
+# set http/ftp proxy
+PROXYOPTS=none
+
+# Add first mirror (CDN)
+APKREPOSOPTS="-1 -c"
+
+# Create admin user
+USEROPTS="-a -u -g netdev bernd"
+USERSSHKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDmtp9k9GKUqd/ZavyzzHcnzNOj3QPu8OQX6rOQrKCs4GTR5NyAXfdUjqLf5hrifhljwN11bzyHA4w7W6JRqNphRXG103JjpbT3y5nWMk9VNaMxDBEavflCnFoJDDcgOd9o2lr99y2x5kEJ3ZN+dkrBTu5A9F5fjPCXQRa8wwAptYM/W10LC+tWqM0BFTNqLmeQU1PD7Wqlg5XHam4HoGopFCETkTFUwI2l1Um7ym8T2CD5P3yl1ugcmaGVPIuZSKY40/OO897b4Rd3Hi6vCc/CwuOtOUXijjcVUHIeikujS+qYuDjyMEDCeDuS/JtiKwx9fYegv8Cz1lBKQejgbGs8ojUsNf7Q8xAedJPmH5f+Y7XY3TQAj3un8JHXB/+Ud4rPHBNHVqErbRSCENSa5Zm17L+ygkp1lksK6ibKRzf2X3e51HUgJF3eiLApamlWCW0lcpqkT3r3fe1yRnlPB1Prfk/g1FF0qHXp0SN7PFuo/JAuxxDAPq/NdMwslmcZ9SZmyqfLB7riM9EilPozwMXW+doAsIDFV1StNQjCz2E838GtEtK2BE2nGdj+1HbcU27heNn5gtaMcvTumGor/qLUwSZ2u2uAEMJ60T82tPKm2+RpHmZEALiIgmT9sR/2kPlcnRD+WTHTNQEZ7dykAax2f3rM5EFbk17Bz+g9M8XX5Q== bernd@der-b"
+
+# Install Openssh
+SSHDOPTS=openssh
+#ROOTSSHKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDmtp9k9GKUqd/ZavyzzHcnzNOj3QPu8OQX6rOQrKCs4GTR5NyAXfdUjqLf5hrifhljwN11bzyHA4w7W6JRqNphRXG103JjpbT3y5nWMk9VNaMxDBEavflCnFoJDDcgOd9o2lr99y2x5kEJ3ZN+dkrBTu5A9F5fjPCXQRa8wwAptYM/W10LC+tWqM0BFTNqLmeQU1PD7Wqlg5XHam4HoGopFCETkTFUwI2l1Um7ym8T2CD5P3yl1ugcmaGVPIuZSKY40/OO897b4Rd3Hi6vCc/CwuOtOUXijjcVUHIeikujS+qYuDjyMEDCeDuS/JtiKwx9fYegv8Cz1lBKQejgbGs8ojUsNf7Q8xAedJPmH5f+Y7XY3TQAj3un8JHXB/+Ud4rPHBNHVqErbRSCENSa5Zm17L+ygkp1lksK6ibKRzf2X3e51HUgJF3eiLApamlWCW0lcpqkT3r3fe1yRnlPB1Prfk/g1FF0qHXp0SN7PFuo/JAuxxDAPq/NdMwslmcZ9SZmyqfLB7riM9EilPozwMXW+doAsIDFV1StNQjCz2E838GtEtK2BE2nGdj+1HbcU27heNn5gtaMcvTumGor/qLUwSZ2u2uAEMJ60T82tPKm2+RpHmZEALiIgmT9sR/2kPlcnRD+WTHTNQEZ7dykAax2f3rM5EFbk17Bz+g9M8XX5Q== bernd@der-b"
+
+# Use openntpd
+# NTPOPTS="openntpd"
+NTPOPTS=chrony
+
+# Use /dev/sda as a sys disk
+# DISKOPTS="-m sys /dev/sda"
+DISKOPTS=none
+
+# Setup storage with label APKOVL for config storage
+#LBUOPTS="LABEL=APKOVL"
+LBUOPTS=none
+
+#APKCACHEOPTS="/media/LABEL=APKOVL/cache"
+APKCACHEOPTS=none
+
